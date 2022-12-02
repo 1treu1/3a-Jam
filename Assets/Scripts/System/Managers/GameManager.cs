@@ -4,25 +4,33 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GameManager : Singleton<GameManager>
 {
+    [Header("Components")]
+    public PuzzelController puzzelController;
+
     [Header("Setup")]
-    public bool isActive;
     public bool isStartGame;
-    
+
+    public int size;
+
+
     private void Start()
     {
-        //StartCoroutine(StartGame());
+        StartCoroutine(StartGame());
     }
 
     public IEnumerator StartGame()
     {
-        ScenesManager.Instance.ui.panelRuler.SetActive(true);
-        yield return new WaitUntil(() => !ScenesManager.Instance.ui.panelRuler.activeInHierarchy);
-        isActive = true;
+        isStartGame = true;
+        
+        yield return new WaitForSeconds(.5f);
+        puzzelController.StartningSettup(size);
+        yield return new WaitForSeconds(.1f);
+        //CountDown();
     }
 
     public IEnumerator Winner()
     {
-        isActive = false;
+        isStartGame = false;
         SoundManager.Instance.PauseAllSounds(true);
         SoundManager.Instance.PlayNewSound("Winner");
         yield return new WaitForSeconds(5f);
@@ -32,7 +40,7 @@ public class GameManager : Singleton<GameManager>
     }
     public IEnumerator Losser()
     {
-        isActive = false;
+        isStartGame = false;
         SoundManager.Instance.PauseAllSounds(true);
         SoundManager.Instance.PlayNewSound("Losser");
         yield return new WaitForSeconds(5f);
@@ -41,11 +49,9 @@ public class GameManager : Singleton<GameManager>
         ScenesManager.Instance.RestartMainMenu();
     }
 
-    
-    // Update is called once per frame
     void Update()
     {
-        if (!isActive)
+        if (!isStartGame)
             return;
 
         if (Input.GetKeyDown(KeyCode.P) && isStartGame || Input.GetKeyDown(KeyCode.Escape) && isStartGame)
