@@ -178,14 +178,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7311769779263165921, guid: 320af13b4c9b2e14d8066376e69cdfc1, type: 3}
-      propertyPath: isActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311769779263165921, guid: 320af13b4c9b2e14d8066376e69cdfc1, type: 3}
-      propertyPath: isStartGame
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 320af13b4c9b2e14d8066376e69cdfc1, type: 3}
 --- !u!1 &519420028
@@ -422,50 +414,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: cards.Array.size
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: cards.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0b0d40defd7d4b04a8929a62ca22094a, type: 2}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: cards.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 39c9aa4ba2f26224789543f9efb2acd1, type: 2}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: cards.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0547558276255fc43bfc366959970413, type: 2}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: cards.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 31fade408c470c047a8af1d2d0e17775, type: 2}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: cards.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: a6596d56188940841a57c19f1f401227, type: 2}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: cards.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: 669598927d7b4ab44bf8dcc43668fbd4, type: 2}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: cards.Array.data[9]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0f7a5825ce611fd4b951020bf0a22b6a, type: 2}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: cards.Array.data[10]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0b0d40defd7d4b04a8929a62ca22094a, type: 2}
-    - target: {fileID: 3881482419415377303, guid: b995fa2d338759b429093a8693cad25a, type: 3}
-      propertyPath: cards.Array.data[11]
-      value: 
-      objectReference: {fileID: 11400000, guid: d1843fb5a9a2bf243aa13f18c9133a4a, type: 2}
     - target: {fileID: 3881482419415377306, guid: b995fa2d338759b429093a8693cad25a, type: 3}
       propertyPath: m_Name
       value: MainGameCanvas

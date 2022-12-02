@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System;
 
 public class PuzzelController : MonoBehaviour
 {
     public GameObject puzzelField;
+    public GameObject puzzelFieldRandom;
     public GameObject cardHandlerPrefab;
     public Sprite backCardSprite;
     public int size;
@@ -15,26 +15,27 @@ public class PuzzelController : MonoBehaviour
 
     public bool firstGuess;
     public bool secondGuess;
-    public string firstGuessName;
-    public string secondGuessName;
-    public int firstGuessIndex;
-    public int secondGuessIndex;
     public int countGuesses;
     public int countGuessesCorrect;
     public int correctGuesses;
 
+    int firstGuessIndex;
+    int secondGuessIndex; 
+    string firstGuessName;
+    string secondGuessName;
 
     public List<Card> cards = new List<Card>();
+    public List<Card> provitionalCards = new List<Card>();
+
 
     // Start is called before the first frame update
     void Start()
     {
         correctGuesses = size / 2;
-        CreateButtons(size);
-        canSelect = true;
+        StartCoroutine(CreateButtons(size));
     }
 
-    void CreateButtons(int quantity)
+    IEnumerator CreateButtons(int quantity)
     {
         for (int i = 0; i < quantity; i++)
         {
@@ -53,7 +54,13 @@ public class PuzzelController : MonoBehaviour
             Card newCard = cards[i];
 
             button.onClick.AddListener(() => StartEventButton(newCard));
+            
+            provitionalCards.Add(newCard);
+
+            yield return new WaitForSeconds(.3f);
         }
+
+        StartCoroutine(Shuffle(provitionalCards));
     }
 
     public void ResetEventButton()
@@ -78,6 +85,7 @@ public class PuzzelController : MonoBehaviour
         {
             firstGuess = true;
             firstGuessName = card.nameCard;
+            Debug.Log(1);
             firstGuessIndex = card.id;
         }
         else if (!secondGuess)
@@ -85,7 +93,61 @@ public class PuzzelController : MonoBehaviour
             secondGuess = true;
             secondGuessName = card.nameCard;
             secondGuessIndex = card.id;
+            Debug.Log(2);
             StartCoroutine(Check());
+        }
+    }
+
+    IEnumerator Shuffle(List<Card> list)
+    {
+        ResetEventButton();
+        //crear un randome de los provicionales.
+        for (int i = 0; i < list.Count; i++)
+        {
+            Card provitional = list[i];
+            int randomNum = Random.Range(i,list.Count);
+            list[i] = list[randomNum];
+            list[randomNum] = provitional;
+            
+        }
+
+        if (puzzelField.activeInHierarchy)
+        {
+            puzzelFieldRandom.SetActive(true);
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                provitionalCards[i].button.gameObject.transform.SetParent(puzzelFieldRandom.transform, false);
+            }
+            
+            puzzelField.SetActive(false);
+            Debug.Log("sss");
+        }
+        else
+        {
+            Debug.Log("sss2");
+            
+            puzzelField.SetActive(true);
+            
+            for (int i = 0; i < list.Count; i++)
+            {
+                provitionalCards[i].button.gameObject.transform.SetParent(puzzelField.transform, false);
+            }
+
+            puzzelFieldRandom.SetActive(false);
+        }
+        yield return null;
+        
+        Debug.Log("xx");
+        canSelect = true;
+
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            StartCoroutine(Shuffle(provitionalCards));
         }
     }
 
@@ -97,7 +159,6 @@ public class PuzzelController : MonoBehaviour
         if (secondGuessName == firstGuessName)
         {
             countGuessesCorrect++;
-            yield return new WaitForSeconds(.5f);
             StartCoroutine(CheckTheGameIsFinish());
             Debug.Log("The puzzle Match");
             
@@ -106,14 +167,18 @@ public class PuzzelController : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSeconds(.8f);
+            yield return new WaitForSeconds(.5f);
             StartCoroutine(HideCards());
             Debug.Log("The puzzle dont Match");
         }
+
+        yield return null;
     }
 
     IEnumerator CheckTheGameIsFinish()
     {
+        canSelect = false;
+
         if (countGuessesCorrect < correctGuesses) 
         {
             countGuesses++;
@@ -136,6 +201,7 @@ public class PuzzelController : MonoBehaviour
 
     IEnumerator HideCards()
     {
+        canSelect = false;
         for (int i = 0; i < size; i++)
         {
             if (cards[i].nameCard == firstGuessName && cards[i].id == firstGuessIndex ||
@@ -149,7 +215,6 @@ public class PuzzelController : MonoBehaviour
         ResetEventButton();
         yield return null;
     }
-
 
     IEnumerator ShowCard(GameObject handlerButton)
     {
