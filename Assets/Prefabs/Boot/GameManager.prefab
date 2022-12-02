@@ -142,5 +142,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92106a0ce3fa82d49b837a50ad8735dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 0
-  isStartGame: 1
+  puzzelController: {fileID: 0}
+  mainPanel: {fileID: 0}
+  timer: {fileID: 0}
+  scoreText: {fileID: 0}
+  levelText: {fileID: 0}
+  scoreTextMainPanel: {fileID: 0}
+  timeMax: 0
+  currentTime: 0
+  score: 0
+  level: 0
+  isStartGame: 0
+  size: 8

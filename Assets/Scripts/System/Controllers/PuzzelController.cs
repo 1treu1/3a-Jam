@@ -80,15 +80,14 @@ public class PuzzelController : MonoBehaviour
 
     IEnumerator StartSecondGame()
     {
-        SoundManager.Instance?.EndSound("MainBackGround");
         secondGamePanel.SetActive(true);
-        SoundManager.Instance?.PlayNewSound("LevelBackGround");
         isStartSecundGame = true;
         yield return new WaitUntil(() => !isStartSecundGame);
         secondGamePanel.SetActive(false);
 
         if (result)
         {
+            GameManager.Instance.score++; 
             countGuessesCorrect++;
             StartCoroutine(CheckTheGameIsFinish());
         }
@@ -200,18 +199,34 @@ public class PuzzelController : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSeconds(.5f);
-            for (int i = 0; i < provitionalCards.Count; i++)
-            {
-                cards[i].button.transform.GetChild(0).gameObject.SetActive(false);
-                cards[i].button.enabled = false;
-            }
-
-            GameManager.Instance.Winner();
-
+            StartCoroutine(GameManager.Instance.Winner());
+            SkipGame();
         }
 
         yield return null;
+    }
+
+    public void SkipGame()
+    {
+        for (int i = 0; i < provitionalCards.Count; i++)
+        {
+            cards[i].button.transform.GetChild(0).gameObject.SetActive(false);
+            cards[i].button.enabled = false;
+        }
+
+        ResetEventButton();
+
+        for (int i = 0; i < provitionalCards.Count; i++)
+        {
+            Destroy(provitionalCards[i].button.gameObject);
+        }
+
+        Boddy.SetActive(false);
+        secondGamePanel.SetActive(false);
+        countGuessesCorrect = countGuesses = correctGuesses = 0;
+        provitionalCards.Clear();
+        puzzelField.SetActive(true);
+        puzzelFieldRandom.SetActive(false);
     }
 
     IEnumerator HideCards()
