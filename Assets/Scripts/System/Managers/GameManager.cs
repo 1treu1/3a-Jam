@@ -6,10 +6,11 @@ public class GameManager : Singleton<GameManager>
 {
     [Header("Setup")]
     public bool isActive;
+    public bool isStartGame;
     
     private void Start()
     {
-        StartCoroutine(StartGame());
+        //StartCoroutine(StartGame());
     }
 
     public IEnumerator StartGame()
@@ -47,7 +48,7 @@ public class GameManager : Singleton<GameManager>
         if (!isActive)
             return;
 
-        if (Input.GetKeyDown(KeyCode.P) && isActive || Input.GetKeyDown(KeyCode.Escape) && isActive)
+        if (Input.GetKeyDown(KeyCode.P) && isStartGame || Input.GetKeyDown(KeyCode.Escape) && isStartGame)
         {
             ScenesManager.Instance?.Pause();
         }

@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 734683533073302295, guid: 586af80858b472d489ed3cc728e6e4f3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6099277211993913323, guid: 586af80858b472d489ed3cc728e6e4f3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -174,9 +178,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7228238755221073718, guid: 586af80858b472d489ed3cc728e6e4f3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8121302277731349762, guid: 586af80858b472d489ed3cc728e6e4f3, type: 3}
       propertyPath: m_Name
       value: LoadingPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121302277731349762, guid: 586af80858b472d489ed3cc728e6e4f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 586af80858b472d489ed3cc728e6e4f3, type: 3}
@@ -557,6 +569,10 @@ PrefabInstance:
       value: SceneManager
       objectReference: {fileID: 0}
     - target: {fileID: 6055909215917949845, guid: 8d8a770182c8d944c9a004deb4d914aa, type: 3}
+      propertyPath: ui.panelSubs
+      value: 
+      objectReference: {fileID: 7941148310374809751}
+    - target: {fileID: 6055909215917949845, guid: 8d8a770182c8d944c9a004deb4d914aa, type: 3}
       propertyPath: ui.panelRuler
       value: 
       objectReference: {fileID: 264854357}
@@ -711,6 +727,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3843495346311729805, guid: c89dcc983a958a84e8e6b77c906ea64a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843495346311729806, guid: c89dcc983a958a84e8e6b77c906ea64a, type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4115882905838312205, guid: c89dcc983a958a84e8e6b77c906ea64a, type: 3}
