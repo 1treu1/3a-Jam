@@ -117,16 +117,14 @@ MonoBehaviour:
   puzzelField: {fileID: 3881482419462949248}
   cardHandlerPrefab: {fileID: 2101723640569744668, guid: d791434ef562ad6479210faf52e41f82, type: 3}
   backCardSprite: {fileID: 21300000, guid: 2ef997bad93a63540ba39ea86bb4c52c, type: 3}
+  firstGuess: 0
+  secondGuess: 0
   cards:
   - {fileID: 11400000, guid: 0f7a5825ce611fd4b951020bf0a22b6a, type: 2}
   - {fileID: 11400000, guid: 669598927d7b4ab44bf8dcc43668fbd4, type: 2}
-  - {fileID: 11400000, guid: 0f7a5825ce611fd4b951020bf0a22b6a, type: 2}
-  - {fileID: 11400000, guid: 669598927d7b4ab44bf8dcc43668fbd4, type: 2}
-  - {fileID: 11400000, guid: 0f7a5825ce611fd4b951020bf0a22b6a, type: 2}
-  - {fileID: 11400000, guid: 669598927d7b4ab44bf8dcc43668fbd4, type: 2}
-  - {fileID: 11400000, guid: 0f7a5825ce611fd4b951020bf0a22b6a, type: 2}
-  - {fileID: 11400000, guid: 669598927d7b4ab44bf8dcc43668fbd4, type: 2}
-  buttons: []
+  - {fileID: 11400000, guid: d1843fb5a9a2bf243aa13f18c9133a4a, type: 2}
+  - {fileID: 11400000, guid: 0b0d40defd7d4b04a8929a62ca22094a, type: 2}
+  gamePuzzels: []
 --- !u!1 &3881482419462949248
 GameObject:
   m_ObjectHideFlags: 0
