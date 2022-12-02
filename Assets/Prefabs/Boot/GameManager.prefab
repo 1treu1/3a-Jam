@@ -142,10 +142,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92106a0ce3fa82d49b837a50ad8735dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTime: 0
-  maxTime: 15
-  time: {fileID: 0}
-  reverse: 0
-  canChange: 0
-  speed: 5
   isActive: 0
+  isStartGame: 1

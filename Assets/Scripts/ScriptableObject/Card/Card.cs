@@ -9,4 +9,5 @@ public class Card : ScriptableObject
     public string nameCard;
     public int id;
     public Texture icon;
+    public Button button;
 }
