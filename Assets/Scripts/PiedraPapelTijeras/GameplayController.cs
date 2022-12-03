@@ -146,14 +146,15 @@ public class GameplayController : MonoBehaviour {
 
     IEnumerator DisplayWinnerAndRestart()
     {
-        yield return new WaitForSeconds(1.8f);
+        
+        yield return new WaitForSeconds(2f);
         infoText.gameObject.SetActive(true);
         
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(2f);
         infoText.gameObject.SetActive(false);
 
         animationController.ResetAnimations();
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(1f);
     }
 
 }// class

@@ -48,22 +48,22 @@ public class GameManager : Singleton<GameManager>
         {
             case 0:
                 size = 4;
-                speed = 130;
+                speed = 40;
                     break;
 
             case 1:
                 size = 8;
-                speed = 150;
+                speed = 35;
                 break;
 
             case 2:
                 size = 12;
-                speed = 260;
+                speed = 30;
                 break;
 
             case 3:
                 size = 12;
-                speed = 250;
+                speed = 35;
                 break;
         }
     }

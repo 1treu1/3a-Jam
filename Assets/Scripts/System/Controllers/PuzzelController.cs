@@ -130,6 +130,7 @@ public class PuzzelController : MonoBehaviour
 
     IEnumerator Shuffle(List<Card> list)
     {
+        canSelect = false;
         //crear un randome de los provicionales.
         for (int i = 0; i < list.Count; i++)
         {
@@ -165,7 +166,6 @@ public class PuzzelController : MonoBehaviour
         
         ResetEventButton();
 
-        canSelect = true;
       
         yield return null;
 
