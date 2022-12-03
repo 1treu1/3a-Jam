@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour {
 
-    private AnimationController AnimationController;
+    private AnimationController animationController;
     private GameplayController GameplayController;
 
     private string playersChoice;
 
     void Awake() {
-        AnimationController = GetComponent<AnimationController>();
+        animationController = GetComponent<AnimationController>();
         GameplayController = GetComponent<GameplayController>();
     }
     
@@ -18,12 +18,15 @@ public class InputController : MonoBehaviour {
 
         string choiceName = UnityEngine.EventSystems.
             EventSystem.current.currentSelectedGameObject.name;
+        Debug.Log(choiceName);
+
 
         GameChoices SelectedChoice = GameChoices.NONE;
 
-        switch(choiceName) {
+        switch(choiceName) 
+        {
  
-            case "Rock": 
+            case "Rock":    
                 SelectedChoice = GameChoices.ROCK;
                 break;
 
@@ -34,11 +37,10 @@ public class InputController : MonoBehaviour {
             case "Scissors":
                 SelectedChoice = GameChoices.SCISSORS; 
                 break;
-
         }
 
-        //GameplayController.SetChoices(SelectedChoice);
-        AnimationController.PlayerMadeChoice();       
+        GameplayController.SetChoices(SelectedChoice);
+        animationController.PlayerMadeChoice();       
 
     }
 

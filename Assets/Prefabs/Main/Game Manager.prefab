@@ -60,6 +60,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397bc0e2c41157e4d8b6f4a9e02c64f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rock_Sprite: {fileID: 2013195380, guid: 40e07258277968744a3efa9efd57c3ae, type: 3}
+  paper_Sprite: {fileID: 1847123021, guid: 40e07258277968744a3efa9efd57c3ae, type: 3}
+  scissors_Sprite: {fileID: 794498173, guid: 40e07258277968744a3efa9efd57c3ae, type: 3}
+  playerChoice_Img: {fileID: 0}
+  oponentChoice_Img: {fileID: 0}
+  infoText: {fileID: 0}
+  isStartSecundGame: 0
+  result: 0
 --- !u!114 &8522325703932810686
 MonoBehaviour:
   m_ObjectHideFlags: 0

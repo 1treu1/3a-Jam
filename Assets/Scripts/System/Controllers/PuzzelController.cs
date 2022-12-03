@@ -29,8 +29,7 @@ public class PuzzelController : MonoBehaviour
     public List<Card> provitionalCards = new List<Card>();
 
     //boolsDelOtroJuego
-    public bool isStartSecundGame;
-    public bool result;
+
     
     public void StartningSettup(int size)
     {
@@ -80,14 +79,17 @@ public class PuzzelController : MonoBehaviour
 
     IEnumerator StartSecondGame()
     {
+        yield return new WaitForSeconds(.3f); 
         secondGamePanel.SetActive(true);
-        isStartSecundGame = true;
-        yield return new WaitUntil(() => !isStartSecundGame);
+        GameManager.Instance.secundGameController.isStartSecundGame = true;
+        yield return new WaitUntil(() => !GameManager.Instance.secundGameController.isStartSecundGame);
+        yield return new WaitForSeconds(5f);
         secondGamePanel.SetActive(false);
 
-        if (result)
+        if (GameManager.Instance.secundGameController.result)
         {
-            GameManager.Instance.score++; 
+            GameManager.Instance.score++;
+            GameManager.Instance.scoreText.text = "Score : 0" + GameManager.Instance.score.ToString();
             countGuessesCorrect++;
             StartCoroutine(CheckTheGameIsFinish());
         }
@@ -176,10 +178,9 @@ public class PuzzelController : MonoBehaviour
 
         if (secondGuessName == firstGuessName)
         {
-            //ActivarPiedraPapelTijeras
             StartCoroutine(StartSecondGame());
             Debug.Log("The puzzle Match");
-            yield return new WaitForSeconds(.2f);
+            yield return new WaitForSeconds(.6f);
         }
         else
         {

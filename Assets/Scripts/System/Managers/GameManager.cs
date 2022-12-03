@@ -6,6 +6,7 @@ public class GameManager : Singleton<GameManager>
 {
     [Header("Components")]
     public PuzzelController puzzelController;
+    public GameplayController secundGameController;
     public GameObject mainPanel;
     public Slider timer;
     public TMPro.TMP_Text scoreText;
@@ -52,17 +53,17 @@ public class GameManager : Singleton<GameManager>
 
             case 1:
                 size = 8;
-                speed = 140;
+                speed = 150;
                 break;
 
             case 2:
                 size = 12;
-                speed = 150;
+                speed = 260;
                 break;
 
             case 3:
                 size = 12;
-                speed = 160;
+                speed = 250;
                 break;
         }
     }
@@ -80,6 +81,7 @@ public class GameManager : Singleton<GameManager>
 
     public IEnumerator Winner()
     {
+        yield return new WaitForSeconds(.7f);
         mainPanel.SetActive(false);
         ScenesManager.Instance?.ui.panelWinner.SetActive(true);
         level++;

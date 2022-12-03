@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzelController: {fileID: 0}
+  secundGameController: {fileID: 0}
   mainPanel: {fileID: 0}
   timer: {fileID: 0}
   scoreText: {fileID: 0}
@@ -152,5 +153,6 @@ MonoBehaviour:
   currentTime: 0
   score: 0
   level: 0
-  isStartGame: 0
+  isStartGame: 1
   size: 8
+  speed: 0
